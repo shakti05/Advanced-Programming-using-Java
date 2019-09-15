@@ -1,0 +1,231 @@
+1. Write a program to implement the concept of threading by extending Thread Class and Runnable interface.
+CODE:
+class Threader_1 extends Thread
+{ 
+public void run(){
+System.out.println("Threader 1 is running");
+}
+}
+class Threader_2 implements Runnable
+{
+public void run(){
+try{Thread.sleep(100);}catch(InterruptedException e){}
+System.out.println("Threader 2 is running");
+}
+}
+public class Thread_1
+{
+public static void main(String[] args)
+{
+Threader_1 t1 = new Threader_1();
+Thread t2 = new Thread(new Threader_2());
+t1.start();
+t2.start();
+}
+}
+
+
+
+2. Write a program for generating 2 threads, one for printing even numbers and the other for printing odd numbers.
+CODE:
+class odd extends Thread
+{
+static int  n=1;
+public void run(){
+for(n=1;n<=10;n+=2)
+System.out.println(" "+n);
+}
+}
+class even extends Thread
+{
+static int  n=2;
+public void run(){
+for(n=2;n<=10;n+=2)
+System.out.println(" "+n);
+}
+}
+public class Thread_2
+{
+public static void main(String[] args)
+{
+String r ="r";
+odd o = new odd();
+even e = new even();
+try
+{
+o.start();
+o.join();
+e.start();
+e.join();
+}
+catch(InterruptedException t)
+{}
+}
+}
+
+
+
+3. Write a program to launch 10 threads. Each thread increments a counter variable. Run the program with synchronization. 
+CODE:
+class inc extends Thread
+{
+static int i=0;
+synchronized static void incre()
+{
+i++;
+System.out.println(i);
+}
+public void run()
+{
+incre();
+}
+}
+public class Thread_3
+{public static void main(String[] args)
+{
+inc i0 = new inc();
+inc i1 = new inc();
+inc i2 = new inc();
+inc i3 = new inc();
+inc i4 = new inc();
+inc i5 = new inc();
+inc i6 = new inc();
+inc i7 = new inc();
+inc i8 = new inc();
+inc i9 = new inc();
+
+i0.start();
+i1.start();
+i2.start();
+i3.start();
+i4.start();
+i5.start();
+i6.start();
+i7.start();
+i8.start();
+i9.start();
+}
+}
+
+
+
+4. Write a Java program to create five threads with different priorities. Send two threads of the highest priority to sleep state. Check the aliveness of the threads and mark which thread is long lasting.
+CODE:
+import java.util.*;
+class ThreadDemo extends Thread
+{
+    Thread t;
+    String name;
+    int priority;
+ThreadDemo(int priority,String name)
+    {
+this.name=name;
+this.priority=priority;
+t=new Thread(this,name);
+System.out.println("New Thread "+t);
+t.start();
+}
+public void run()
+{int p=t.getPriority();
+try
+{
+if(p= =9 || p= =8)
+{ t.sleep(3000);}
+else
+{System.out.println(t.currentThread()+"is alive?"+t.isAlive());}
+while(t.isAlive())
+{ System.out.println("Longest Live thread:"+t.getName());}
+}
+catch(InterruptedException e)
+ {System.out.println("Thread Interrupts");}
+    }
+}
+class Main_Thread
+{
+public static void main(String args[])
+    {
+   new ThreadDemo(5,"One");
+   new ThreadDemo(6,"Two");
+   new ThreadDemo(7,"Three");
+   new ThreadDemo(8,"Four");
+   new ThreadDemo(9,"Five");
+    }
+}
+
+
+
+TITLE: Collections
+
+1. Write a program for the following: Read all elements from ArrayList by using Iterator. Create duplicate object of an ArrayList instance. Reverse ArrayList content.
+CODE:
+import java.util.*;  
+class Test_Collection
+{
+public static void main(String args[])
+{
+ArrayList<String> list=new ArrayList<String>();
+	list.add("Shakti Jarial");
+	list.add("Abhay"); 
+	list.add("Shefali");
+	list.add("Surbhi");  
+	Iterator itr=list.iterator();  
+	while(itr.hasNext())
+	{
+	System.out.println(itr.next());
+	}   
+	}   
+}  
+
+
+
+2. Write a program for the following HashMap, find whether specified key exists or not. Find whether specified value exists or not, get all keys from the given HashMap and get all key-value pair as Entry objects.
+CODE:
+import java.util.*; 
+  public class HashMapKey 
+  { 
+    public static void main(String[] args) 
+    { 
+HashMap<Integer, String>
+map = new HashMap<>(); 
+map.put(1, "surbhi"); 
+map.put(2, "mohit"); 
+map.put(3, "arya"); 
+        int keyToBeChecked = 2; 
+System.out.println("HashMap: "+ map); 
+Iterator<Map.Entry<Integer, String>>
+iterator = map.entrySet().iterator(); 
+boolean isKeyPresent = false; 
+while (iterator.hasNext()) 
+{ 
+Map.Entry<Integer, String>
+entry = iterator.next(); 
+if (keyToBeChecked == entry.getKey()) 
+{ 
+isKeyPresent = true; 
+} 
+} 
+System.out.println("Does key "+ keyToBeChecked+ " exists: "+ isKeyPresent); 
+} 
+}
+
+
+
+3. Write a program for the following HashSet copy another collection object to HashSet object. Delete all entries at one call from HashSet. Search user defined objects from HashSet
+CODE:
+import java.util.*;  
+class CopyHashSet
+{
+ public static void main(String args[]){  
+ArrayList<String> list=new ArrayList<String>();  
+list.add("Shakti");  
+list.add("Abhay");  
+list.add("Arya");  
+HashSet<String> set=new HashSet(list);  
+set.add("Surbhi");  
+           Iterator<String>i=set.iterator();  
+           while(i.hasNext())  
+           {  
+System.out.println(i.next());  
+           }  	
+ }
+ }
