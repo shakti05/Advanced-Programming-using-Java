@@ -63,6 +63,7 @@ System.out.println("In upper case:" +" " +up);
 }
 }
 
+
  
 4. Write a program in Java to create a String object. Initialize this object with your name. Find the length of your name using the appropriate String method. Find whether the character ‘a’ is in your name or not; if yes find the number of times ‘a’ appears in your name. Print locations of occurrences of ‘a’ .Try the same for different String objects
 CODE:
@@ -84,5 +85,87 @@ System.out.println(" a or A found at " + i +"th position");
 }
 }
 System.out.println(" a found at " + count +"times");
+}
+}
+
+
+
+TITLE: Wrapper Classes
+1. Write a Java code that converts int to Integer, converts Integer to String, converts String to int, converts int to String, converts String to Integer converts Integer to int.
+CODE:
+import java.util.Scanner;
+class convert{
+public static void main(String args[]){
+int a=20;  
+Integer i1 =Integer.valueOf(a); 
+Integer j=a; 
+System.out.println(j);
+Integer a1=new Integer(3);    
+int i2=a1.intValue();
+int j1=a1;  
+System.out.println(j);
+int c = 134; 
+String str3 = String.valueOf(c); 
+System.out.println(str3);
+ 
+//String to int
+String number = "10";
+int result = Integer.parseInt(number);	
+System.out.println(result);
+ 
+String s1 = "2015";
+int i3 = Integer.parseInt(s1);
+System.out.println(i3); 
+String s3 = "2015";
+int i4= Integer.valueOf(s3);
+System.out.println(i4);  
+int i5 = 2015;
+String s = Integer.toString(i4);
+System.out.println(s); 
+}
+}
+
+
+
+2. Write a Java code that converts float to Float converts Float to String converts String to float converts float to String converts String to Float converts Float to float.
+CODE:
+import java.util.Scanner;
+class convert2{
+public static void main(String args[]){
+//converts float to Float 
+float f1=20;
+ 
+Float F1= new Float(f1);
+System.out.println(F1);
+Float F3=Float.valueOf(f1);
+System.out.println(F3);
+//converts Float to String
+Float F4= new Float(30);
+String str1=F4.toString();
+    System.out.println(str1);
+String str2= String.valueOf(F4);
+     System.out.println(str2);
+String str3=" "+F4;
+    System.out.println(str2);
+//converts String to float 
+String s2="20.3";
+float f2= Float.parseFloat(s2);
+System.out.println(f2);
+//convert float to String
+float f3= 12.3f;
+String s3=String.valueOf(f3);
+System.out.println(f3);
+//convert String to Float
+String s="20.4";
+Float F5 = new Float(s);
+      System.out.println(F5);
+Float F8=Float.valueOf(s);
+      System.out.println(F8);
+Float F9=Float.parseFloat(s);
+     System.out.println(F9);
+//convert Float to float
+Float F7= new Float(20.7f);
+float f4= F7.floatValue();
+System.out.println(f4);
 }
 }
