@@ -1,0 +1,119 @@
+1. Write a program to create interface named test. In this interface the member function is square. Implement this interface in arithmetic class. Create one new class called ToTestInt. In this class use the object of arithmetic class.
+CODE:
+interface test
+{
+  public void square(int a);
+}
+class Arith implements test
+{
+public void square(int a)
+{
+   int b=a*a;
+   System.out.println("square is"+b);
+}}
+class ToTestInt
+{
+public static void main(String args[])
+{
+    Arith obj=new Arith();
+    obj.square(2);
+}
+}
+
+
+
+2. Write a program to create interface A, in this interface we have two method meth1 and meth2. Implements this interface in another class named MyClass.
+interface A
+{
+   public void meth1();
+ public void meth2();
+}
+class myclass implements A
+{
+public void meth1()
+{
+System.out.println("Implementation of method1");
+}
+public void meth2()
+{
+System.out.println("Implementation of method2");
+}
+public static void main(String args[])
+{
+myclass obj = new myclass();
+obj.meth1();
+}}
+
+
+
+3. Write a program in Java to show the usefulness of Interfaces as a place to keep constant value of the program.
+CODE:
+interface area
+{	
+static final float pi=3.142f;
+float compute(float x,float y);
+}
+class rectangle implements area
+{
+public float compute(float x,float y)
+{return(x*y);}
+}
+class circle implements area
+{
+public float compute(float x,float y)
+{return(pi*x*x);}
+}
+class ar_main
+{
+public static void main(String args[])
+{
+rectangle rect=new rectangle();
+circle cr=new circle();
+area ar;
+ar=rect;
+System.out.println("Area of the rectangle= "+ar.compute(4,2));
+ar=cr;
+System.out.println("Area of the circle= "+ar.compute(9,3));
+}
+}
+
+
+
+4. Write a program to create an Interface having two methods division and modules. Create a class, which overrides these methods.
+CODE:
+interface course
+{	
+void division(int a);
+void modules(int b);}
+class stud implements course
+{	
+String name;
+int div,mod;
+void name(String n)
+{ 
+name=n; 
+}
+public void division(int a)
+{ 
+div=a; 
+}
+public void modules(int b)
+{ 
+mod=b; 
+}
+void disp()
+{	
+System.out.println("Name :"+name);
+System.out.println("Division :"+div);
+System.out.println("Modules :"+mod);
+}}
+class cr_main
+{
+public static void main(String args[])
+{
+stud s=new stud();
+s.name("Shakti");
+s.division(2);
+s.modules(8);
+s.disp();
+}}
